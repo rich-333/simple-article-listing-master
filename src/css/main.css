@@ -1,0 +1,15 @@
+body {
+  background-color: #333333;
+}
+
+.header {
+  background-color: aqua;
+}
+.header__h1 {
+  color: red;
+}
+.header__svg {
+  background-color: beige;
+}
+
+/*# sourceMappingURL=main.css.map */

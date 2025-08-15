@@ -1,0 +1,17 @@
+@import 'variables';
+
+body {
+    background-color: lighten($color-black, 20%);
+}
+
+.header {
+    background-color: aqua;
+    &__h1 {
+        color: red;
+    }
+
+    &__svg {
+        background-color: beige;
+    }
+}
+
