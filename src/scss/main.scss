@@ -1,17 +1,112 @@
 @import 'variables';
 
+$break-points: (
+    "mobile": 361px,
+    "tablet": 841px,
+    "desktop": 1100px 
+);
+
+@mixin respond-to($size) {
+    $break-points: map-get($break-points, $size);
+    @media (min-width: $break-points) {
+        @content;
+    }
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+} 
+
 body {
-    background-color: lighten($color-black, 20%);
+    margin: 0;
+    padding: 0;
+    font-family: $font-poppins;
+    background-color: $color-white;
+}
+
+.page {
+    width: 100%;
+    margin: 15px 0;
+    padding: 0 20px;
+    margin: 10px auto;
+    /*width: 1200px;*/
+
+    @include respond-to("tablet") {
+        max-width: 90vw;
+    }
+
+    @include respond-to("desktop") {
+        max-width: 1300px;
+    }
 }
 
 .header {
-    background-color: aqua;
+    text-align: center;
+    /*padding: 0px 200px;*/
+    padding: 0 10px;
+
     &__h1 {
-        color: red;
+        color: $color-black;
+        font-size: 2.25rem;
+        font-weight: 600;
     }
 
     &__svg {
-        background-color: beige;
+        margin-top: 20px;
+        width: 180px;
+        height: 25px;
+    }
+
+    @include respond-to("tablet") {
+        padding: 0 130px;
+    }
+
+    @include respond-to("desktop") {
+        padding: 0px 280px;
     }
 }
 
+.main {
+    padding: 0 5px;
+    /*padding: 0 225px;*/
+    .article {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-top: 35px;
+
+        &__img {
+            border-radius: $img-border-radius;
+        }
+
+        .content {
+            &__h3 {
+                color: $color-black;
+                font-weight: 600;
+                font-size: 1.25rem;
+                margin: 0;
+
+                @include respond-to("tablet") {
+                    margin-bottom: 10px;
+                }
+            }
+
+            &__span {
+                color: $color-gray;
+                font-size: .875rem;
+                font-weight: 500;
+            }
+        }
+        @include respond-to("desktop") {
+            gap: 70px;
+        }
+    }
+
+    @include respond-to("tablet") {
+        padding: 0 120px;
+    }
+
+    @include respond-to("desktop") {
+        padding: 0 255px;
+    }
+}
